@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Sowmya Vijayan · CV</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root { --text: #1c1f24; --muted: #4a505a; --accent: #1f5f8b; --line: #d9dde2; --bg: #ffffff; }
+  * { box-sizing: border-box; }
+  body { margin: 0; background: #eef1f4; color: var(--text); font: 10pt/1.45 "Inter", system-ui, sans-serif; }
+  .bar { max-width: 210mm; margin: 0 auto; padding: 16px 0; display: flex; justify-content: space-between; align-items: center; font-size: 14px; }
+  .bar a { color: var(--accent); font-weight: 600; text-decoration: none; }
+  .page { background: var(--bg); max-width: 210mm; margin: 0 auto 40px; padding: 14mm 15mm; box-shadow: 0 4px 20px rgba(0,0,0,.08); }
+  h1 { font-size: 22pt; margin: 0; letter-spacing: -.01em; }
+  .tag { color: var(--accent); font-weight: 600; margin: 2px 0 6px; }
+  .contact { color: var(--muted); font-size: 9pt; }
+  .contact a { color: var(--muted); }
+  h2 { font-size: 9.5pt; text-transform: uppercase; letter-spacing: .08em; color: var(--accent); border-bottom: 1px solid var(--line); padding-bottom: 3px; margin: 14px 0 6px; }
+  .row { display: flex; justify-content: space-between; gap: 12px; }
+  .row b { font-weight: 600; }
+  .when { color: var(--muted); font-size: 9pt; white-space: nowrap; }
+  p { margin: 0 0 4px; }
+  ul { margin: 2px 0 8px; padding-left: 16px; }
+  li { margin-bottom: 2px; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 0 20px; }
+  @media (max-width: 700px) { .page { padding: 20px 16px; } .two { grid-template-columns: 1fr; } .row { flex-direction: column; gap: 0; } .bar { padding: 16px; } }
+  @page { size: A4; margin: 0; }
+  @media print { body { background: #fff; font-size: 9.2pt; line-height: 1.38; } h2 { margin: 10px 0 4px; } ul { margin-bottom: 5px; } .page { padding: 11mm 13mm !important; } .bar { display: none; } .page { box-shadow: none; margin: 0; max-width: none; } }
+</style>
+</head>
+<body>
+<div class="bar"><a href="./">← Back to portfolio</a><a href="Sowmya-Vijayan-CV.pdf" download>Download PDF</a></div>
+<main class="page">
+  <h1>Sowmya Vijayan</h1>
+  <p class="tag">MEng Mechanical Engineering · University of Sheffield</p>
+  <p class="contact">Sheffield and Derby, UK · <a href="mailto:sowmyavijayan31@gmail.com">sowmyavijayan31@gmail.com</a> · <a href="https://github.com/svijayan1-star">github.com/svijayan1-star</a></p>
+
+  <h2>Profile</h2>
+  <p>Mechanical engineering student with First Class results in Years 1 and 2. I like the point where a design meets the workshop: modelling a part, testing it, and working out why the model and the test disagree. I've used FEA, MATLAB data processing and design for 3D printing on my own projects, and shadowed design and manufacturing engineers at ITP Aero.</p>
+
+  <h2>Education</h2>
+  <div class="row"><span><b>University of Sheffield</b> · Integrated MEng Mechanical Engineering</span><span class="when">Sep 2024 to present</span></div>
+  <ul><li>First Class in Years 1 and 2 across Solid Mechanics, Materials, Dynamics, Fluids, Thermodynamics and Mathematics.</li></ul>
+  <div class="row"><span><b>Derby High School</b> · A-Levels</span><span class="when">Sep 2022 to Jun 2024</span></div>
+  <ul><li>A* in Mathematics, Further Mathematics and Chemistry, and an A* EPQ on sport participation in young people.</li></ul>
+
+  <h2>Projects</h2>
+  <div class="row"><span><b>Running-shoe midsole: lattice FEA and design for 3D printing</b> · Personal</span><span class="when">Aug 2026</span></div>
+  <ul>
+    <li>Compared three TPU lattices (re-entrant auxetic, honeycomb, diamond grid) in Fusion 360 under a 2,000 N heel-strike load.</li>
+    <li>All three were over 60% lighter than a solid TPU block. The honeycomb absorbed the most energy per kg (63.19 J/kg); the auxetic was stiffest (1,416 N/mm).</li>
+    <li>Mesh convergence study at 3.0, 1.5 and 1.0 mm; chose 1.5 mm and identified corner stress singularities, to be removed with 0.5 mm fillets.</li>
+    <li>Supportless geometry with 1.5 mm walls sized to a 0.4 mm nozzle; sliced each design at about 5 hours and 26 g.</li>
+  </ul>
+  <div class="row"><span><b>E-bike gearbox design and fatigue analysis</b> · Group project</span><span class="when">Oct 2025 to Jun 2026</span></div>
+  <ul>
+    <li>Calculated gear tooth bending and contact stresses, torque-speed curves and gear ratios to estimate fatigue life.</li>
+    <li>Compared FEA stress predictions with physical prototype tests and studied the failure modes under load.</li>
+  </ul>
+  <div class="row"><span><b>Table tennis swing analysis from a phone motion sensor (MATLAB)</b> · Personal</span><span class="when">Jul 2026</span></div>
+  <ul>
+    <li>Processed 3-axis IMU data from five forehand swings: 4th-order 12 Hz Butterworth filter (zero-phase filtfilt), swing segmentation, drift-corrected integration.</li>
+    <li>Estimated racket-tip speed from sensor velocity and rotation: peak 9.12 m/s, peak impact 8.06 g.</li>
+  </ul>
+
+  <h2>Experience</h2>
+  <div class="row"><span><b>ITP Aero, UK</b> · Engineering work shadowing</span><span class="when">Jul 2025</span></div>
+  <ul><li>Shadowed design and manufacturing engineers during aerofoil development and multi-stage structural testing; saw quality assurance, non-destructive testing and virtual testing used to prevent fatigue defects.</li></ul>
+  <div class="row"><span><b>Alliance for Sports Engineering Education, UK</b> · Sports aerodynamics</span><span class="when">Aug 2025</span></div>
+  <ul><li>Studied surface modification, fluid dynamics and drag reduction for high-speed bodies.</li></ul>
+
+  <div class="two">
+    <div>
+      <h2>Skills</h2>
+      <ul>
+        <li><b>Software:</b> Fusion 360 (CAD, FEA), MATLAB, Ansys (introductory CFD), Git and GitHub, Microsoft Office.</li>
+        <li><b>Analysis:</b> static structural FEA, mesh convergence, stress and fatigue, design for additive manufacturing, aerodynamics and fluids.</li>
+        <li><b>Documentation:</b> technical drawings, hand calculations.</li>
+      </ul>
+    </div>
+    <div>
+      <h2>Leadership and awards</h2>
+      <ul>
+        <li>Commendation for Collaboration and Innovation, University of Sheffield (flood mitigation design).</li>
+        <li>Volunteer teacher, Bhuj, India: learning activities for disabled children.</li>
+        <li>Charity coordinator: 100+ student network; raised over £1,000 toward an £80,000 campaign.</li>
+        <li>Online STEM tutor (Maths, Chemistry). Netball umpire. Grade 8 flute and singing.</li>
+      </ul>
+    </div>
+  </div>
+</main>
+</body>
+</html>
