@@ -105,6 +105,10 @@
   .card figure img { width: 100%; height: auto; display: block; border-radius: 10px; border: 1px solid var(--line); }
   .card figcaption { font-size: 12px; color: var(--muted); margin-top: 6px; }
   @media (max-width: 600px) { .hero { flex-direction: column-reverse; align-items: flex-start; gap: 20px; } .avatar { width: 96px; height: 96px; } }
+  .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 18px 0 4px; }
+  .gallery figure { margin: 0; }
+  .gallery img { width: 100%; height: 150px; object-fit: contain; border-radius: 8px; border: 1px solid var(--line); display: block; background: #fff; }
+  @media (max-width: 600px) { .gallery { grid-template-columns: 1fr; } .gallery img { height: auto; } }
 </style>
 </head>
 <body>
@@ -146,16 +150,22 @@
     <h2>Projects</h2>
 
     <article class="card">
-      <h3>FEA and DfAM lattice optimisation</h3>
-      <p class="meta">Personal project · August 2026</p>
-      <figure><img src="images/lattice.svg" alt="Drawing of a lattice beam under load. Warmer struts carry more stress." loading="lazy"><figcaption>Drawing of a lattice beam under load. Warmer struts carry more stress.</figcaption></figure>
+      <h3>Running-shoe midsole for 3D printing: lattice FEA and DfAM</h3>
+      <p class="meta">Personal project · August 2026 · <a href="https://github.com/svijayan1-star/footwear-auxetic-midsole-fea">View on GitHub</a></p>
+      <figure><img src="images/midsole-hero.jpg" alt="Three TPU lattice designs: re-entrant auxetic, hexagonal honeycomb and diamond grid" loading="lazy"><figcaption>The three lattice designs compared.</figcaption></figure>
       <ul>
-        <li>Ran static structural FEA in Fusion 360 on TPU lattice designs under a 2,000 N load.</li>
-        <li>Cut structural mass by more than 60%.</li>
-        <li>Ran a mesh convergence study from 3.0 mm down to 1.0 mm. This removed false stress peaks at sharp corners and settled on a 1.5 mm mesh.</li>
-        <li>Shaped the strut geometry around 3D-printing toolpaths, so the part could actually be printed (Design for Additive Manufacturing, or DfAM).</li>
+        <li>Compared three TPU midsole lattices (re-entrant auxetic, hexagonal honeycomb and diamond grid) under a 2,000 N heel-strike load, the peak for an 80 kg runner.</li>
+        <li>Ran static stress analysis in Fusion 360. All three designs came out more than 60% lighter than a solid 60 g TPU block, with the honeycomb and diamond grid at 61.2%.</li>
+        <li>The honeycomb absorbed the most energy for its weight (63.19 J/kg). The auxetic design was stiffest (1,416 N/mm).</li>
+        <li>Ran a mesh convergence study at 3.0, 1.5 and 1.0 mm and chose 1.5 mm. The finest mesh mainly chased the stress spike at sharp internal corners, so the next CAD version adds 0.5 mm fillets.</li>
+        <li>Designed for printing (DfAM): vertical walls so no supports are needed, and 1.5 mm walls that match 3 to 4 passes of a 0.4 mm nozzle. Sliced each design at about 5 hours and 26 g of TPU.</li>
       </ul>
-      <ul class="tags"><li>Fusion 360</li><li>FEA</li><li>DfAM</li><li>TPU</li></ul>
+      <div class="gallery">
+        <figure><img src="images/FEA_Variant1_Reentrant_Stress.jpg" alt="Von Mises stress plot, re-entrant auxetic" loading="lazy"><figcaption>Auxetic · peak 3.82 MPa</figcaption></figure>
+        <figure><img src="images/FEA_Variant2_Honeycomb_Stress.jpg" alt="Von Mises stress plot, hexagonal honeycomb" loading="lazy"><figcaption>Honeycomb · peak 3.61 MPa</figcaption></figure>
+        <figure><img src="images/FEA_Variant3_DiamondGrid_Stress.jpg" alt="Von Mises stress plot, diamond grid" loading="lazy"><figcaption>Diamond grid · peak 4.45 MPa</figcaption></figure>
+      </div>
+      <ul class="tags"><li>Fusion 360</li><li>FEA</li><li>DfAM</li><li>TPU</li><li>Print slicing</li></ul>
     </article>
 
     <article class="card">
@@ -170,15 +180,16 @@
     </article>
 
     <article class="card">
-      <h3>IMU sensor data pipeline</h3>
-      <p class="meta">Personal project · July 2026</p>
-      <figure><img src="images/signal.svg" alt="Drawing of noisy sensor data and the same signal after a zero-phase filter." loading="lazy"><figcaption>Drawing of noisy sensor data and the same signal after a zero-phase filter.</figcaption></figure>
+      <h3>Table tennis swing analysis from a phone sensor (MATLAB)</h3>
+      <p class="meta">Personal project · July 2026 · <a href="https://github.com/svijayan1-star/sports-imu-kinematics">View on GitHub</a></p>
+      <figure><img src="images/swing_kinematics_plot.jpg" alt="MATLAB plots of filtered acceleration, velocity and impact load over five swings" loading="lazy"><figcaption>Five forehand topspin swings: acceleration, velocity, and impact load.</figcaption></figure>
       <ul>
-        <li>Wrote MATLAB scripts to clean, process and line up raw 3-axis motion-sensor data (IMU telemetry).</li>
-        <li>Designed a 4th-order low-pass Butterworth filter, run with filtfilt, to remove sensor noise without shifting the signal in time.</li>
-        <li>Used numerical integration (cumtrapz) and interpolation to work out velocity, angular motion and peak impact loads.</li>
+        <li>Recorded a phone's motion sensor (IMU, via the Phyphox app) strapped to a table tennis racket over five forehand topspin shots.</li>
+        <li>Filtered the noise with a 4th-order 12 Hz low-pass Butterworth filter, run with filtfilt so the signal isn't shifted in time.</li>
+        <li>Split the recording into single swings and integrated acceleration into velocity (cumtrapz), correcting the drift so velocity returns to zero at rest.</li>
+        <li>Worked out racket-tip speed from the sensor speed plus rotation. Peak tip speed was 9.12 m/s and peak impact 8.06 g.</li>
       </ul>
-      <ul class="tags"><li>MATLAB</li><li>Signal processing</li><li>Data analysis</li></ul>
+      <ul class="tags"><li>MATLAB</li><li>Signal processing</li><li>Sports engineering</li></ul>
     </article>
   </section>
 
